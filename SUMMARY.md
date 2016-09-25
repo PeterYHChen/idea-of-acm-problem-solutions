@@ -1,6 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-* [First Chapter](chapter1.md)
+* [First Chapter]()
     * [haha](hahadir/haha.md)
 	* [haha2](haha2.md)
