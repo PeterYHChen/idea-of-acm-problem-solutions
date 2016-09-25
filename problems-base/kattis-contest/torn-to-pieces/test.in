@@ -1,0 +1,19 @@
+3
+Uptown Midtown
+Midtown Uptown Downtown
+Downtown Midtown
+Uptown Downtown
+6
+A B
+B A D
+C D
+E D F G
+F E
+G E
+F A
+4
+FirstStop SecondStop
+SecondStop FirstStop ThirdStop
+FifthStop FourthStop SixthStop
+SixthStop FifthStop
+FirstStop FifthStop
