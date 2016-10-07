@@ -1,9 +1,8 @@
 {
-    "author": "Chengwei Yang <me@chengweiyang.cn>",
+    "author": "Yonghong Chen",
     "description": "This is a sample book created by gitbook",
     "extension": null,
     "generator": "site",
-    "isbn": null,
     "links": {
         "sharing": {
             "all": null,
@@ -13,7 +12,6 @@
             "weibo": null
         },
         "sidebar": {
-            "Chengwei's Blog": "http://www.chengweiyang.cn"
         }
     },
     "output": null,
@@ -30,7 +28,7 @@
         "pageNumbers": false,
         "paperSize": "a4"
     },
-    "plugins": [],
+    "plugins": ["codesnippet"],
     "title": "Sample GitBook",
     "variables": {}
 }

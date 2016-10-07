@@ -17,7 +17,7 @@ generateMenu(){
             touch "$file"/README.md
             echo "$indent* [$filename]($file/README.md)" >> SUMMARY.md
             generateMenu $file "1+$depth"
-        elif [ -f "$file" ] && [ $filename != "README.md" ]; then
+        elif [ -f "$file" ] && [ $filename != "README.md" ] && [ $filename != "solution.cpp" ]; then
             echo "$indent* [$filename]($file)" >> SUMMARY.md
         fi
     done
