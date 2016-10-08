@@ -1,8 +1,8 @@
 > SUMMARY.md
 touch SUMMARY.md
 
-#fileIgnore=("README.md" "solution.cpp" "test.in")
-fileIgnore=("README.md" "test.in")
+fileNotParse=("solution.cpp" "test.in")
+fileIgnore=("README.md")
 
 generateMenu(){
     local dir=$1
@@ -21,18 +21,29 @@ generateMenu(){
             touch "$file"/README.md
             echo "$indent* [$filename]($file/README.md)" >> SUMMARY.md
             generateMenu $file "1+$depth"
+
         elif [[ -f "$file" ]]; then
-            if [[ "${fileIgnore[@]}" =~ $filename ]]; then
+            if [[ "${fileIgnore[@]}" =~ $filename ]]; then # files to be ignored.
                 continue
+
+            elif [[ "${fileNotParse[@]}" =~ $filename ]]; then # handle not parsed files, usually source code
+                filedir=$(dirname "$file")
+                # cat all files under same directory
+                # indent the content as code block in markdown syntax
+                value=`cat $file`
+                # value=`cat $file | sed 's/^/    /'`
+                echo "## $filename" >> "$filedir/README.md"
+                # echo "{% raw %}" >> "$filedir/README.md"
+                echo "\`\`\`cpp" >> "$filedir/README.md"
+                echo "$value" >> "$filedir/README.md"
+                echo "\`\`\`" >> "$filedir/README.md"
+                # echo "{% endraw %}" >> "$filedir/README.md"
+                # sed -i 's/^/    /' "$filedir/README.md"
+                continue
+
+            else # other markdown files
+                echo "$indent* [$filename]($file)" >> SUMMARY.md
             fi
-            #echo "$indent* [$filename]($file)" >> SUMMARY.md
-            # cat all files under same directory
-            local filedir=$(dirname "$file")
-            local value=`cat $file`
-            echo "{% raw %}" >> "$filedir/README.md"
-            echo "$value" >> "$filedir/README.md"
-            echo "{% endraw %}" >> "$filedir/README.md"
-            sed -i 's/^/    /' "$filedir/README.md"
         fi
     done
 }
