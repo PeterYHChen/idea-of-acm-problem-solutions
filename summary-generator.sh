@@ -33,12 +33,9 @@ generateMenu(){
                 value=`cat $file`
                 # value=`cat $file | sed 's/^/    /'`
                 echo "## $filename" >> "$filedir/README.md"
-                # echo "{% raw %}" >> "$filedir/README.md"
                 echo "\`\`\`cpp" >> "$filedir/README.md"
                 echo "$value" >> "$filedir/README.md"
                 echo "\`\`\`" >> "$filedir/README.md"
-                # echo "{% endraw %}" >> "$filedir/README.md"
-                # sed -i 's/^/    /' "$filedir/README.md"
                 continue
 
             else # other markdown files
