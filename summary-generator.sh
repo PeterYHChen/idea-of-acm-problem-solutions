@@ -2,7 +2,7 @@
 touch SUMMARY.md
 
 fileNotParse=("solution.cpp" "test.in")
-fileIgnore=("README.md")
+fileIgnore=("README.md", "a.out")
 
 generateMenu(){
     local dir=$1
