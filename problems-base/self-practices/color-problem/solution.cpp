@@ -40,7 +40,6 @@ int addRelation(string a, string b)
 int main()
 {
     int n;
-    cin >> n;
 
     string s, a, b;
     bool hasRelation;
@@ -48,9 +47,8 @@ int main()
     string maxDegreeString;
     int maxDegree = 0;
 
-    while(n--)
+    while(cin >> s >> hasRelation)
     {
-        cin >> s >> hasRelation;
         if(!hasRelation)
             continue;
         
